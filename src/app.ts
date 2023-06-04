@@ -4,8 +4,8 @@ import compression from "compression";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
-import Controller from "@/utils/interfaces/controller.interface";
-import errorMiddleware from "@/middleware/error.middleware";
+import Controller from "./utils/interfaces/controller.interface";
+import errorMiddleware from "./middleware/error.middleware";
 
 class App {
   private _express: Application;

@@ -3,12 +3,12 @@ import "module-alias/register";
 import { createServer } from "http";
 import { Request, Response } from "express";
 import App from "./app";
-import Controller from "@/utils/interfaces/controller.interface";
+import Controller from "./utils/interfaces/controller.interface";
 // import InstagramUserController from "@/resources/instagram/user/user.controller";
 // import InstagramFeatureController from "@/resources/instagram/feature/feature.controller";
 import validateEnv from "./utils/validateEnv";
-import Cron from "@/utils/classes/cron";
-import updateCounter from "@/utils/cron-test";
+import Cron from "./utils/classes/cron";
+import updateCounter from "./utils/cron-test";
 
 // validate environtment
 validateEnv();

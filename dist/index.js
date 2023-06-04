@@ -19,8 +19,8 @@ const app_1 = __importDefault(require("./app"));
 // import InstagramUserController from "@/resources/instagram/user/user.controller";
 // import InstagramFeatureController from "@/resources/instagram/feature/feature.controller";
 const validateEnv_1 = __importDefault(require("./utils/validateEnv"));
-const cron_1 = __importDefault(require("@/utils/classes/cron"));
-const cron_test_1 = __importDefault(require("@/utils/cron-test"));
+const cron_1 = __importDefault(require("./utils/classes/cron"));
+const cron_test_1 = __importDefault(require("./utils/cron-test"));
 // validate environtment
 (0, validateEnv_1.default)();
 // initialize controllers

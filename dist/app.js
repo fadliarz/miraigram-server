@@ -9,7 +9,7 @@ const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const helmet_1 = __importDefault(require("helmet"));
 const morgan_1 = __importDefault(require("morgan"));
-const error_middleware_1 = __importDefault(require("@/middleware/error.middleware"));
+const error_middleware_1 = __importDefault(require("./middleware/error.middleware"));
 class App {
     constructor(controllers, port) {
         this._express = (0, express_1.default)();
