@@ -4,21 +4,20 @@ import { createServer } from "http";
 import { Request, Response } from "express";
 import App from "./app";
 import Controller from "./utils/interfaces/controller.interface";
-// import InstagramUserController from "@/resources/instagram/user/user.controller";
-// import InstagramFeatureController from "@/resources/instagram/feature/feature.controller";
-import validateEnv from "./utils/validateEnv";
+import InstagramUserController from "@/resources/instagram/jsonuser/user.controller";
+import InstagramFeatureController from "@/resources/instagram/feature/feature.controller";
+import validateEnv from "./utils/validators/validateEnv";
 import Cron from "./utils/classes/cron";
-import updateCounter from "./utils/cron-test";
+import updateCounter from "./utils/tests/cron-test";
 
 // validate environtment
 validateEnv();
 
 // initialize controllers
-// const controllers: Controller[] = [
-//   new InstagramUserController(),
-//   new InstagramFeatureController(),
-// ];
-const controllers: Controller[] = [];
+const controllers: Controller[] = [
+  new InstagramUserController(),
+  new InstagramFeatureController(),
+];
 
 // initialize app with the controllers and create server with the app
 const app = new App(controllers, 8000);
@@ -61,9 +60,12 @@ app.express.get("/stop", (req: Request, res: Response) => {
   res.send("Cron job is just stopped");
 });
 
+
 async function start(): Promise<void> {
   try {
-    server.listen(8000, () => console.log(`Server is listening on port 8000`));
+    server.listen(process.env.PORT, () =>
+      console.log("Server is listening on port", process.env.PORT)
+    );
   } catch (error) {
     console.log(error);
   }

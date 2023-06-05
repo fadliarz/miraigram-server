@@ -16,19 +16,18 @@ require("dotenv/config");
 require("module-alias/register");
 const http_1 = require("http");
 const app_1 = __importDefault(require("./app"));
-// import InstagramUserController from "@/resources/instagram/user/user.controller";
-// import InstagramFeatureController from "@/resources/instagram/feature/feature.controller";
-const validateEnv_1 = __importDefault(require("./utils/validateEnv"));
+const user_controller_1 = __importDefault(require("@/resources/instagram/jsonuser/user.controller"));
+const feature_controller_1 = __importDefault(require("@/resources/instagram/feature/feature.controller"));
+const validateEnv_1 = __importDefault(require("./utils/validators/validateEnv"));
 const cron_1 = __importDefault(require("./utils/classes/cron"));
-const cron_test_1 = __importDefault(require("./utils/cron-test"));
+const cron_test_1 = __importDefault(require("./utils/tests/cron-test"));
 // validate environtment
 (0, validateEnv_1.default)();
 // initialize controllers
-// const controllers: Controller[] = [
-//   new InstagramUserController(),
-//   new InstagramFeatureController(),
-// ];
-const controllers = [];
+const controllers = [
+    new user_controller_1.default(),
+    new feature_controller_1.default(),
+];
 // initialize app with the controllers and create server with the app
 const app = new app_1.default(controllers, 8000);
 const server = (0, http_1.createServer)(app.express);
@@ -62,7 +61,7 @@ app.express.get("/stop", (req, res) => {
 function start() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            server.listen(8000, () => console.log(`Server is listening on port 8000`));
+            server.listen(process.env.PORT, () => console.log("Server is listening on port", process.env.PORT));
         }
         catch (error) {
             console.log(error);

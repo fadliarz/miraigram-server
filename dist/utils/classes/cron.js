@@ -14,9 +14,6 @@ class Cron {
     get isRunning() {
         return this._isRunning;
     }
-    get field() {
-        return this._field;
-    }
     start() {
         if (this._isRunning) {
             return this._isRunning;

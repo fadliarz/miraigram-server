@@ -11,6 +11,7 @@ function validateEnv(): void {
     MONGO_USERNAME: str(),
     MONGO_PASSWORD: str(),
     PORT: port({ default: 3000 }),
+    DOMAIN: str(),
   });
 }
 

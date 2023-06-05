@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": string,
+      "userId": string,
+      "username": "string",
+      "password": "string",
+      "createdAt": "Date",
+      "lastActivity": "Date",
+      "deviceSetting": "string",
+      "isActive": "boolean"
+    }
+  ]
+}

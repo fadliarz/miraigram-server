@@ -2,6 +2,8 @@
 // import HttpException from "@/utils/exceptions/http.exception";
 // import Controller from "@/utils/interfaces/controller.interface";
 // import InstagramUser from "@/resources/instagram/user/user.model";
+// import validateBody from "@/utils/validators/validateBody";
+// import { InstagramUserValidationSchema } from "@/resources/instagram/user/user.schema";
 
 // class InstagramUserController implements Controller {
 //   private _path = "/api/v1/users";
@@ -38,7 +40,7 @@
 
 //       res.status(200).json({ instagramDatabases });
 //     } catch (error) {
-//       next(new HttpException(400, "Failed fetching databases"));
+//       next(new HttpException(400, "failed fetching databases"));
 //     }
 //   }
 
@@ -54,7 +56,7 @@
 
 //       res.status(200).json({ instagramDatabase });
 //     } catch (error) {
-//       next(new HttpException(400, "Failed fetching database"));
+//       next(new HttpException(400, "failed fetching database"));
 //     }
 //   }
 
@@ -63,12 +65,21 @@
 //     res: Response,
 //     next: NextFunction
 //   ): Promise<Response | void> {
+//     validateBody(req, res, InstagramUserValidationSchema);
+
+//     const payload = {
+//       ...req.body,
+//       createdAt: new Date(),
+//       lastActivity: new Date(),
+//       isActive: true,
+//     };
+
 //     try {
-//       const newInstagramDatabase = await InstagramUser.create(req.body);
+//       const newInstagramDatabase = await InstagramUser.create(payload);
 
 //       res.status(201).json({ newInstagramDatabase });
 //     } catch (error) {
-//       next(new HttpException(400, "Failed creating database"));
+//       next(new HttpException(400, "failed creating database"));
 //     }
 //   }
 

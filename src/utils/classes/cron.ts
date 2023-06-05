@@ -16,10 +16,6 @@ class Cron {
     return this._isRunning;
   }
 
-  public get field() {
-    return this._field;
-  }
-
   public start() {
     if (this._isRunning) {
       return this._isRunning;
